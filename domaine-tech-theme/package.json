@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "start": "shopify theme dev",
+        "watch": "npx tailwind -i ./assets/tailwind.css -o ./assets/application.css --watch --watch",
+        "dev": "npm run watch & npm run start"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.0.9"
+    }
+}
