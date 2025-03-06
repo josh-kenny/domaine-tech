@@ -16,6 +16,7 @@ module.exports = {
         cardBorder: '#E8E8E8',
         cardBrand: '#111111',
         cardProductName: '#0A4874',
+        cardSalePrice: '#FF0000',
       },
     },
   },

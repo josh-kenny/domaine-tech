@@ -1,7 +1,7 @@
 {%- if card_product and card_product != blank -%}
   <div class="relative bg-white rounded-lg p-4 product-card" data-product-id="{{ card_product.id }}" data-product-handle="{{ card_product.handle }}">
     {%- if card_product.featured_media -%}
-      <div class="relative p-[20px] overflow-hidden rounded-lg border border-gray-200 mb-[15px] product-card-image-container group">
+      <div class="relative p-[20px] overflow-hidden rounded-[10px] border border-gray-200 mb-[15px] product-card-image-container group">
         {% comment %} Sale badge - initially hidden, will be shown by JavaScript if needed {% endcomment %}
         <div class="absolute left-[20px] top-[20px] z-10 hidden border border-red-500 rounded-full js-sale-badge">
           <span class="inline-flex items-center px-4 py-1 rounded-full text-md font-medium border-1 text-red-800">
@@ -37,7 +37,7 @@
               {% if card_product.featured_media.width >= 1066 %}{{ card_product.featured_media | image_url: width: 1066 }} 1066w{% endif %}"
             sizes="(min-width: 1200px) 267px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
             alt="{{ card_product.featured_media.alt | escape }}"
-            class="absolute inset-0 w-full h-full object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 secondary-image"
+            class="absolute inset-0  object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 secondary-image"
             width="{{ card_product.featured_media.width }}"
             height="{{ card_product.featured_media.height }}"
             loading="lazy"
@@ -108,7 +108,7 @@
                   >
                   <label 
                     for="Color-{{ section_id }}-{{ card_product.id }}-{{ forloop.index }}" 
-                    class="block w-[20px] h-[20px] mr-[8px] rounded-full border border-gray-200 cursor-pointer transition-all peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-black hover:border-gray-300 js-color-swatch"
+                    class="block w-[20px] h-[20px] mr-[8px] rounded-full border border-gray-200 cursor-pointer transition-all peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-cardProductName hover:border-gray-300 js-color-swatch"
                     style="background-color: {% if color_hex %}{{ color_hex }}{% else %}{{ downcased_value }}{% endif %};"
                     title="{{ value | escape }}"
                   >
@@ -132,9 +132,9 @@
           </a>
         </h3>
 
-        <div class="flex justify-left font-[Roboto] items-baseline gap-2 js-price-container">
-          <span class="text-gray-500 line-through text-sm js-compare-at-price"></span>
-          <span class="text-lg font-medium text-gray-900 js-price">{{ card_product.price | money }}</span>
+        <div class="flex justify-left font-[Roboto] items-baseline gap-2 js-price-container text-[16px]">
+          <span class="text-cardBrand line-through js-compare-at-price"></span>
+          <span class="font-medium text-cardSalePrice js-price">{{ card_product.price | money }}</span>
         </div>
       </div>
     {%- endif -%}
