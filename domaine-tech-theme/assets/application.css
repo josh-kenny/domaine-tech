@@ -640,6 +640,10 @@ video {
   z-index: 10;
 }
 
+.order-2 {
+  order: 2;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -763,6 +767,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -929,6 +938,11 @@ video {
 .peer:checked ~ .peer-checked\:ring-cardProductName {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(10 72 116 / var(--tw-ring-opacity));
+}
+
+.peer:checked ~ .peer-checked\:ring-black {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
 }
 
 .peer:checked ~ .peer-checked\:ring-offset-1 {
