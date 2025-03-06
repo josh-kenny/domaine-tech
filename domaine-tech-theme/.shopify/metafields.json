@@ -11,36 +11,6 @@
   "page": [],
   "product": [
     {
-      "key": "binding_mount",
-      "namespace": "test_data",
-      "name": "Snowboard binding mount",
-      "description": "The type of binding mount used on the snowboard",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "snowboard_length",
-      "namespace": "test_data",
-      "name": "Snowboard length",
-      "description": "The length of the snowboard",
-      "type": {
-        "name": "dimension",
-        "category": "MEASUREMENT"
-      }
-    },
-    {
-      "key": "age-group",
-      "namespace": "shopify",
-      "name": "Age group",
-      "description": "Defines the target age range for a product, such as adults or kids",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
       "key": "color-pattern",
       "namespace": "shopify",
       "name": "Color",
@@ -51,7 +21,18 @@
       }
     }
   ],
-  "variant": [],
+  "variant": [
+    {
+      "key": "swatch",
+      "namespace": "color",
+      "name": "Swatch Color",
+      "description": "",
+      "type": {
+        "name": "color",
+        "category": "COLOR"
+      }
+    }
+  ],
   "shop": [
     {
       "key": "alpine_sports",
