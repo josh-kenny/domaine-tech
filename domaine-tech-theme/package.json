@@ -1,7 +1,7 @@
 {
     "scripts": {
         "start": "shopify theme dev",
-        "watch": "npx tailwind -i ./assets/tailwind.css -o ./assets/application.css --watch --watch",
+        "watch": "npx tailwind -i ./assets/tailwind.css -o ./assets/application.css --watch",
         "dev": "npm run watch & npm run start"
     },
     "devDependencies": {
