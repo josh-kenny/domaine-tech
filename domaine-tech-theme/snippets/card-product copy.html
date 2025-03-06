@@ -10,7 +10,6 @@
         </div>
         <a href="{{ card_product.url }}" class="block w-full h-full">
           
-          
           {% comment %} Primary and secondary images (unchanged) {% endcomment %}
           <img
             srcset="{% if card_product.featured_media.width >= 165 %}{{ card_product.featured_media | image_url: width: 165 }} 165w,{% endif %}
@@ -66,13 +65,14 @@
             {%- for value in card_product.options_with_values[color_option_index].values -%}
               {%- liquid
                 assign downcased_value = value | downcase
-                assign swatch_color_name = downcased_value
                 assign variant_image = null
                 assign variant_id = nil
                 assign is_on_sale = false
                 assign variant_price = nil
                 assign variant_compare_at_price = nil
+                assign color_hex = nil
                 
+                # Find the matching variant and its color settings
                 for variant in card_product.variants
                   assign variant_option = variant.options[color_option_index] | downcase
                   if variant_option == downcased_value
@@ -80,6 +80,8 @@
                     assign variant_id = variant.id
                     assign variant_price = variant.price
                     assign variant_compare_at_price = variant.compare_at_price
+                    # Get the color metafield for this variant
+                    assign color_hex = variant.metafields.color.swatch
                     if variant.compare_at_price > variant.price
                       assign is_on_sale = true
                     endif
@@ -106,8 +108,8 @@
                   >
                   <label 
                     for="Color-{{ section_id }}-{{ card_product.id }}-{{ forloop.index }}" 
-                    class="block w-[20px] h-[20px] rounded-full border border-gray-200 cursor-pointer transition-all peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-black hover:border-gray-300"
-                    style="background-color: {{ swatch_color_name | replace: ' ', '' }};"
+                    class="block w-[20px] h-[20px] mr-[8px] rounded-full border border-gray-200 cursor-pointer transition-all peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-black hover:border-gray-300"
+                    style="background-color: {% if color_hex %}{{ color_hex }}{% else %}{{ downcased_value }}{% endif %};"
                     title="{{ value | escape }}"
                   >
                     <span class="sr-only">{{ value }}</span>
